@@ -1,0 +1,67 @@
+/* Adminlogin.css */
+
+.admin-login-container {
+    text-align: center;
+    width: min(420px, calc(100% - 32px));
+    margin: 72px auto;
+    padding: 28px;
+    border: 1px solid rgba(170, 197, 225, 0.55);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 18px 48px rgba(41, 94, 143, 0.12);
+    backdrop-filter: blur(10px);
+    font-family: 'Arial', sans-serif;
+    animation: pageFadeUp 420ms ease both;
+  }
+
+  .admin-login-container .back-button {
+    display: block;
+    margin: 0 auto 18px;
+  }
+  
+  .admin-login-title {
+    font-size: 2rem;
+    color: #17253a;
+  }
+  
+  .admin-login-input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #b9cce0;
+    border-radius: 5px;
+    background: #fbfdff;
+  }
+  
+  .admin-login-button {
+    background: linear-gradient(135deg, #087cf4, #23a86d);
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(8, 124, 244, 0.2);
+  }
+  
+  .admin-login-button:hover {
+    background: linear-gradient(135deg, #006fe0, #168d59);
+  }
+  /* Add styling for the "Login as User" link */
+.admin-login-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  .admin-login-link:hover {
+    text-decoration: underline;
+  }
+  
+  
