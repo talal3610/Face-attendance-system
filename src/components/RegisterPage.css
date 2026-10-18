@@ -135,3 +135,15 @@
   margin-top: 12px;
   text-align: center;
 }
+
+.register-container { gap: 12px; }
+.register-back-row { z-index: 2; }
+.register-intro { width: min(500px, 100%); margin: 0 0 8px; text-align: center; }
+.register-intro h1 { margin: 4px 0 8px; color: #f2f7ff; font-size: clamp(1.65rem, 5vw, 2.2rem); }
+.register-intro p:last-child { margin: 0; color: #bac9dc; line-height: 1.55; }
+.register-eyebrow { margin: 0; color: #75e0c3; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.video-container { border: 4px solid rgba(255, 255, 255, 0.9); border-radius: 22px; box-shadow: 0 24px 60px rgba(25, 47, 73, 0.2); }
+.register-button-container button { min-height: 50px; border-radius: 12px; }
+.status-message, .error-message { max-width: 560px; padding: 10px 14px; border-radius: 12px; line-height: 1.45; }
+.status-message { background: rgba(238, 255, 246, 0.92); }
+.error-message { background: rgba(255, 242, 242, 0.95); }

@@ -11,9 +11,26 @@ import ViewAttendance from "./components/ViewAttendance";
 import MarkAttendance from "./components/MarkAttendance";
 import DeleteUser from "./components/DeleteUser";
 import ViewAllUsers from "./components/ViewAllUsers";
+import ManagePasswords from "./components/ManagePasswords";
 import BackButton from "./components/BackButton";
 import RequireAuth from "./components/RequireAuth";
+import { setCurrentUser } from "./utils/localStore";
 import "./components/AdminDashboard.css";
+
+const pageNavigation = typeof window !== "undefined"
+  ? window.performance?.getEntriesByType?.("navigation")?.[0]
+  : null;
+
+if (pageNavigation?.type === "reload") {
+  try {
+    setCurrentUser(null);
+  } catch (error) {
+    console.error("Unable to clear the session after reload:", error);
+  }
+  if (window.location.pathname !== "/") {
+    window.history.replaceState(null, "", "/");
+  }
+}
 
 function SuccessPage() {
   return (
@@ -46,6 +63,7 @@ function App() {
         <Route path="/markattendance" element={<RequireAuth><MarkAttendance/></RequireAuth>}/>
         <Route path="/deleteuser" element={<RequireAuth><DeleteUser/></RequireAuth>}/>
         <Route path="/viewallusers" element={<RequireAuth><ViewAllUsers/></RequireAuth>}/>
+        <Route path="/manage-passwords" element={<RequireAuth><ManagePasswords /></RequireAuth>} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="*" element={<Dashboard />} />
       </Routes>

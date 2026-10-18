@@ -57,6 +57,10 @@ function UserInfoPage() {
       <div className="user-info-back-row">
         <BackButton fallback="/register" />
       </div>
+      <div className="user-info-heading">
+        <h1>Complete user details</h1>
+        <p>Add the sign-in details for this face profile.</p>
+      </div>
       {/* Display error message if any */}
       {error && <p style={{ color: "red" }}>{error}</p>}
 
@@ -72,18 +76,22 @@ function UserInfoPage() {
         <input
           type="text"
           placeholder="Username"
+          aria-label="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="text"
           placeholder="User ID"
+          aria-label="User ID"
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
+          aria-label="Password"
+          autoComplete="new-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

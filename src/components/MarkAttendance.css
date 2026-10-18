@@ -1,4 +1,5 @@
 .management-page {
+  position: relative;
   width: min(960px, calc(100% - 24px));
   margin: 24px auto;
   padding: 20px;
@@ -9,6 +10,17 @@
   backdrop-filter: blur(10px);
   font-family: Arial, sans-serif;
   animation: pageFadeUp 420ms ease both;
+}
+
+.management-page::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  border-radius: 24px 24px 0 0;
+  background: var(--primary-gradient);
+  content: "";
 }
 
 @media (min-width: 768px) {
@@ -359,4 +371,59 @@
   .management-header h1 {
     font-size: 1.25rem;
   }
+}
+
+/* Shared visual refinements for management, attendance, and camera flows. */
+.management-page {
+  width: min(1120px, calc(100% - 32px));
+  margin: clamp(20px, 5vh, 48px) auto;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid rgba(210, 224, 239, 0.9);
+  border-radius: 24px;
+  background: var(--surface);
+  font-family: inherit;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.management-header h1 { font-size: clamp(1.55rem, 4vw, 2.2rem); letter-spacing: -0.04em; }
+.management-header { position: relative; }
+.management-form input, .management-form select, .recognition-panel input {
+  min-height: 48px;
+  padding: 11px 13px;
+  border-color: #d3dfeb;
+  border-radius: 11px;
+}
+.management-form button, .danger-button, .recognition-panel button { min-height: 48px; border-radius: 12px; }
+.management-form label, .recognition-panel label { color: #314861; }
+.management-form input::placeholder, .recognition-panel input::placeholder { color: #8a99ab; }
+.table-wrap { border-color: var(--line); border-radius: 14px; box-shadow: 0 10px 26px rgba(31, 66, 105, 0.06); }
+.management-page th, .management-page td { padding: 14px 16px; border-bottom-color: #edf1f6; }
+.management-page th { background: #f2f7fc; color: #52667d; font-size: 0.75rem; letter-spacing: 0.07em; }
+.empty-state { padding: 24px; border-color: #cfdeec; border-radius: 14px; line-height: 1.55; }
+.attendance-video-panel { border-color: #d6e1ec; border-radius: 18px; }
+.recognition-panel {
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid #e1eaf3;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f7fbff);
+}
+.match-card, .confirmation-message { border-radius: 12px; }
+.status-pill { min-height: 30px; padding: 6px 12px; }
+.status-present { background: #e4f8ed; color: #146b41; }
+.status-absent { background: #fff0ef; color: #a3322b; }
+.status-late { background: #fff5dc; color: #895e00; }
+.attendance-percentage-card {
+  border-color: #d1e9dd;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(31, 66, 105, 0.08);
+}
+.attendance-percentage-card strong { color: #18795f; font-size: 3.2rem; letter-spacing: -0.05em; }
+
+@media (max-width: 640px) {
+  .management-page { width: calc(100% - 20px); padding: 18px; border-radius: 19px; }
+  .management-header { align-items: flex-start; }
+  .management-header h1 { line-height: 1.15; }
+  .management-page th, .management-page td { padding: 11px 12px; }
+  .management-page::before { border-radius: 19px 19px 0 0; }
 }

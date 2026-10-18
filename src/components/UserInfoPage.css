@@ -86,4 +86,13 @@
     text-align: center;
     margin-top: 16px;
   }
+
+.user-info-container { border-radius: 22px; background: var(--surface); box-shadow: var(--shadow); }
+.user-info-heading { width: 100%; margin-bottom: 18px; text-align: center; }
+.user-info-heading h1 { margin: 0 0 7px; color: var(--ink); font-size: clamp(1.6rem, 5vw, 2rem); }
+.user-info-heading p { margin: 0; color: var(--muted); line-height: 1.5; }
+.image-preview img { width: 128px; height: 128px; object-fit: cover; border: 4px solid white; border-radius: 50%; box-shadow: 0 10px 24px rgba(31, 66, 105, 0.16); }
+.user-info-container input { min-height: 48px; padding: 12px 14px; border-color: #d3dfeb; border-radius: 11px; }
+.user-info-container button { min-height: 50px; border-radius: 12px; }
+.progress-bar { color: var(--muted); font-size: 0.9rem; text-align: center; }
   

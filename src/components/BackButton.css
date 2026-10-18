@@ -3,13 +3,15 @@
   min-width: 88px;
   padding: 9px 14px;
   border: 1px solid #c8d7ea;
-  border-radius: 4px;
+  border-radius: 11px;
   background: #ffffff;
-  color: #0056b3;
+  color: #285c91;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
 }
+
+.back-button { min-height: 44px; border-color: #d8e3ee; font-weight: 700; }
 
 .back-button:hover {
   background: #f1f7ff;
@@ -31,7 +33,7 @@
 
 .logout-button {
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid transparent;
   background: #e60023;
   color: #fff;

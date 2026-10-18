@@ -161,6 +161,11 @@ function RegisterPage() {
       <div className="register-back-row">
         <BackButton fallback="/admin-dashboard" />
       </div>
+      <div className="register-intro">
+        <p className="register-eyebrow">New account</p>
+        <h1>Capture a face profile</h1>
+        <p>Position one face in the frame, then capture a clear profile to continue.</p>
+      </div>
       {error && <p className="error-message">{error}</p>}
       {status && <p className="status-message">{status}</p>}
       <div className="video-container">

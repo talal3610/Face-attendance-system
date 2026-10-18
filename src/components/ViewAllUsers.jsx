@@ -44,10 +44,18 @@ function ViewAllUsers() {
       </header>
 
       <div className="view-users-container">
+        <div className="users-summary-row">
+          <div>
+            <p className="users-eyebrow">Directory</p>
+            <h2 className="users-summary-title">Registered users</h2>
+          </div>
+          <span className="users-count">{users.length} {users.length === 1 ? "user" : "users"}</span>
+        </div>
         <div className="user-search-row">
           <input
             type="text"
             placeholder="Search by name or ID..."
+            aria-label="Search users by name or ID"
             className="user-search-input"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -92,17 +100,9 @@ function ViewAllUsers() {
                         : "Unknown"}
                     </span>
                   </div>
-                </div>
-
-                <div className="user-card-footer">
-                  <button
-                    className="view-profile-btn"
-                    onClick={() => {
-                      /* Potential for future use: navigate to user details */
-                    }}
-                  >
-                    View Details
-                  </button>
+                  <div className="user-meta-item">
+                    <span>Face profile: {Array.isArray(user.faceDescriptor) && user.faceDescriptor.length > 0 ? "Ready" : "Not captured"}</span>
+                  </div>
                 </div>
               </article>
             ))}

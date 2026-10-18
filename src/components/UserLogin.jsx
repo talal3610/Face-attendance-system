@@ -34,9 +34,12 @@ function UserLogin() {
     <div className="user-login-container">
       <BackButton fallback="/" />
       <h1 className="user-login-title">User Login</h1>
+      <p className="login-description">Sign in to view your personal attendance record.</p>
       <input
         type="text"
         placeholder="User ID" // Change placeholder to "User ID"
+        aria-label="User ID"
+        autoComplete="username"
         value={userID} // Bind to userID state
         onChange={(e) => setUserID(e.target.value)} // Update userID on input change
         className="user-login-input"
@@ -44,6 +47,8 @@ function UserLogin() {
       <input
         type="password"
         placeholder="Password"
+        aria-label="Password"
+        autoComplete="current-password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="user-login-input"

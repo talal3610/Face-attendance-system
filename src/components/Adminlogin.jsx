@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import Link
 import { setCurrentUser } from "../utils/localStore";
+import { validateAdminCredentials } from "../utils/adminCredentials";
 import BackButton from "./BackButton";
 import "./Adminlogin.css"; // Ensure this CSS file is already linked for styling
 
@@ -10,7 +11,7 @@ function Adminlogin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username === "talal" && password === "0361") {
+    if (validateAdminCredentials(username, password)) {
       // Store a simple admin session so logout and protected routes work
       setCurrentUser({ userId: "admin", username: "Admin" });
       alert("Admin login successful!");
@@ -24,9 +25,12 @@ function Adminlogin() {
     <div className="admin-login-container">
       <BackButton fallback="/" />
       <h1 className="admin-login-title">Admin Login</h1>
+      <p className="login-description">Sign in to manage users and attendance.</p>
       <input
         type="text"
         placeholder="Username"
+        aria-label="Username"
+        autoComplete="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         className="admin-login-input"
@@ -34,6 +38,8 @@ function Adminlogin() {
       <input
         type="password"
         placeholder="Password"
+        aria-label="Password"
+        autoComplete="current-password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="admin-login-input"

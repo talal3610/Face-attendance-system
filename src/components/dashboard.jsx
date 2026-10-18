@@ -6,28 +6,21 @@ function dashboard() {
   return (
     <div className="dashboard-container">
       <div className="dashboard-card">
-        <h1 className="dashboard-title">Welcome to Our Web App</h1>
+        <p className="dashboard-eyebrow">Face attendance system</p>
+        <h1 className="dashboard-title">Attendance, made simple.</h1>
         <p className="dashboard-description">
-          Please select your role to proceed. You can log in as an admin or as a user.
+          Manage attendance and check your records in one place. Choose your sign-in to continue.
         </p>
         <div className="dashboard-button-container">
-          <Link to="/admin">
-            <button
-              className="dashboard-button"
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
-            >
-              Login as Admin
-            </button>
+          <Link to="/admin" className="dashboard-button">
+            <span className="dashboard-role-mark" aria-hidden="true">A</span>
+            <span className="dashboard-role-copy"><strong>Admin sign in</strong><small>Manage users and sessions</small></span>
+            <span className="dashboard-role-arrow" aria-hidden="true">→</span>
           </Link>
-          <Link to="/user">
-            <button
-              className="dashboard-button"
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
-            >
-              Login as User
-            </button>
+          <Link to="/user" className="dashboard-button">
+            <span className="dashboard-role-mark" aria-hidden="true">U</span>
+            <span className="dashboard-role-copy"><strong>User sign in</strong><small>Check your attendance</small></span>
+            <span className="dashboard-role-arrow" aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

@@ -6,6 +6,7 @@ import {
   getDocs,
   serverTimestamp,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { db, isFirebaseConfigured, storage } from "./firebase";
 import { ref as storageRef, uploadString, getDownloadURL } from "firebase/storage";
@@ -156,6 +157,31 @@ export const saveUser = async (user) => {
   }
 
   return getUsers();
+};
+
+export const updateUserPassword = async (userId, password) => {
+  const cleanUserId = userId.trim().toLowerCase();
+  if (!cleanUserId) throw new Error("User ID is required.");
+  if (!password || !password.trim()) throw new Error("Enter a new password.");
+
+  if (!isFirebaseConfigured) {
+    const users = getLocalUsers();
+    const userExists = users.some((user) => user.userId.toLowerCase() === cleanUserId);
+    if (!userExists) throw new Error("User not found.");
+
+    const updatedUsers = users.map((user) =>
+      user.userId.toLowerCase() === cleanUserId ? { ...user, password } : user
+    );
+    writeJson(USERS_KEY, updatedUsers);
+    return updatedUsers.find((user) => user.userId.toLowerCase() === cleanUserId);
+  }
+
+  const userRef = doc(db, "users", cleanUserId);
+  const userSnapshot = await getDoc(userRef);
+  if (!userSnapshot.exists()) throw new Error("User not found.");
+
+  await updateDoc(userRef, { password });
+  return { ...userSnapshot.data(), password };
 };
 
 export const deleteUser = async (userId) => {

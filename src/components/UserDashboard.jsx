@@ -25,10 +25,14 @@ function UserDashboard() {
         </div>
       </div>
       <h1 className="user-dashboard-title">User Dashboard</h1>
+      <p className="dashboard-intro">Your attendance record is ready whenever you need it.</p>
       <div className="user-dashboard-button-container">
         {/* Link to the attendance page (if needed) */}
         <Link to="/view-attendance" className="user-dashboard-button">
-          View Attendance
+          <span className="dashboard-action-copy">
+            <strong className="dashboard-action-title">View Attendance</strong>
+            <span className="dashboard-action-description">See your attendance percentage and daily records.</span>
+          </span>
         </Link>
       </div>
     </div>
